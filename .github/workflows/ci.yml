@@ -22,7 +22,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install test dependencies
-        run: pip install pytest pandas scikit-learn
+        run: pip install pytest pandas scikit-learn wandb
 
       - name: Run Phase 1 tests
         run: pytest "phase 1/cleaning/test_cleaning.py" "phase 1/training/test_train.py"

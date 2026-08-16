@@ -7,9 +7,10 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 import joblib
 import wandb
+import os
 
 def read_in_data():
-    return pd.read_csv('../cleaning/clean_delays.csv')
+    return pd.read_csv(os.path.join(os.path.dirname(__file__), '..', 'cleaning', 'clean_delays.csv'))
 
 def train_test(delays):
     X = delays.drop('ARR_DEL15', axis=1)
