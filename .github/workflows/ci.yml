@@ -28,7 +28,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install test dependencies
-        run: pip install pytest pandas scikit-learn wandb fastapi psycopg pydantic joblib numpy httpx2 seaborn matplotlib streamlit
+        run: pip install pytest flake8 pandas scikit-learn wandb fastapi psycopg pydantic joblib numpy httpx2 seaborn matplotlib streamlit
 
       - name: Run linter
         run: flake8 .
