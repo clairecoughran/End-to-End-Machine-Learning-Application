@@ -30,6 +30,9 @@ jobs:
       - name: Install test dependencies
         run: pip install pytest pandas scikit-learn wandb fastapi psycopg pydantic joblib numpy httpx2 seaborn matplotlib streamlit
 
+      - name: Run linter
+        run: flake8 .
+
       - name: Run Phase 1 tests
         run: pytest "phase 1/cleaning/test_cleaning.py" "phase 1/training/test_train.py"
 
