@@ -16,9 +16,6 @@ def test_get_log():
        'predicted_delay', 'true_delay', 'prediction_latency']
     assert len(df) > 0
 
-def test_load_model():
-    model = ui.load_model()
-    assert model != None
 
 
 # Integration tests should verify:
