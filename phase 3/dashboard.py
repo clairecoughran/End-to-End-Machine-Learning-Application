@@ -6,8 +6,6 @@ from matplotlib import pyplot as plt
 import numpy as np
 import streamlit as st
 
-# DELETE THIS EVENTUALLY!!!!!
-os.environ["DB_PASSWORD"] = "Murphey01!"
 
 def get_log():
     conn = psycopg.connect(
