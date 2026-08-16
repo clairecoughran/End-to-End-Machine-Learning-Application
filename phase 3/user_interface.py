@@ -33,7 +33,7 @@ airline_mapping = {
 binary_mapping = {'Yes': 1, 'No': 0}
 
 # used to map dest and origin from airport name to code 
-airport_codes = pd.read_csv("airport_codes.csv")
+airport_codes = pd.read_csv(os.path.join(os.path.dirname(__file__), "airport_codes.csv"))
 
 
 # --- App Header ---
