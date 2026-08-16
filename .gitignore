@@ -1,0 +1,10 @@
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+wandb/
+.pytest_cache/
+phase 1/cleaning/clean_delays.csv
+phase 3/artifacts/
