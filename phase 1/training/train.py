@@ -10,7 +10,13 @@ import wandb
 import os
 
 def read_in_data():
-    return pd.read_csv(os.path.join(os.path.dirname(__file__), '..', 'cleaning', 'clean_delays.csv'))
+    df = pd.read_csv(os.path.join(os.path.dirname(__file__), '..', '..', 'phase 2', 'clean_delays.csv'))
+    columns = ['MONTH', 'OP_UNIQUE_CARRIER', 'ORIGIN', 'DEST', 'DEP_DELAY_NEW',
+            'DEP_TIME_BLK', 'TAXI_OUT', 'ARR_DEL15', 'CANCELLED', 'DIVERTED',
+            'CRS_ELAPSED_TIME', 'DISTANCE', 'CARRIER_DELAY', 'WEATHER_DELAY',
+            'NAS_DELAY', 'SECURITY_DELAY', 'LATE_AIRCRAFT_DELAY',
+            'LONGEST_ADD_GTIME', 'DIV_AIRPORT_LANDINGS', 'WEEKEND']
+    return df[columns]
 
 def train_test(delays):
     X = delays.drop('ARR_DEL15', axis=1)
