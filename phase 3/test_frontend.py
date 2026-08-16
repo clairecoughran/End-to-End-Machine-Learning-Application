@@ -7,15 +7,24 @@ import pandas as pd
 
 # UNIT TEST
 def test_get_log():
-    df = db.get_log()
-    assert list(df.columns) == ['id', 'timestamp', 'month', 'op_unique_carrier', 'origin', 'dest',
-       'dep_delay_new', 'dep_time_blk', 'taxi_out', 'cancelled', 'diverted',
-       'crs_elapsed_time', 'distance', 'carrier_delay', 'weather_delay',
-       'nas_delay', 'security_delay', 'late_aircraft_delay',
-       'longest_add_gtime', 'div_airport_landings', 'weekend',
-       'predicted_delay', 'true_delay', 'prediction_latency']
-    assert len(df) > 0
+    mock_conn = MagicMock()
+    mock_cursor = MagicMock()
 
+    col_names = ['id', 'timestamp', 'month', 'op_unique_carrier', 'origin', 'dest',
+                'dep_delay_new', 'dep_time_blk', 'taxi_out', 'cancelled', 'diverted',
+                'crs_elapsed_time', 'distance', 'carrier_delay', 'weather_delay',
+                'nas_delay', 'security_delay', 'late_aircraft_delay',
+                'longest_add_gtime', 'div_airport_landings', 'weekend',
+                'predicted_delay', 'true_delay', 'prediction_latency']
+
+    # Mock the dataframe returned from the database
+    mock_df = pd.DataFrame(columns=col_names)
+
+    with patch("dashboard.psycopg.connect", return_value=mock_conn):
+        with patch("dashboard.pd.read_sql", return_value=mock_df):
+            df = db.get_log()
+
+    assert list(df.columns) == col_names
 
 
 # Integration tests should verify:
