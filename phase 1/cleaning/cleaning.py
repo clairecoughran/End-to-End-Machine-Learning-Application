@@ -3,6 +3,7 @@ from sklearn.preprocessing import OneHotEncoder
 from scipy.sparse import hstack
 import joblib
 import numpy as np
+import os
 
 def load_monthly_data():
     month_codes = ['jan_26', 'feb_26', 'mar_26', 'apr_26', 'may_26', 'jun_26', 'jul_25', 'aug_25', 'sep_25', 
@@ -16,7 +17,7 @@ def load_monthly_data():
            'DIV_ARR_DELAY'])
 
     for month in month_codes:
-        df = pd.read_csv('monthly data/' + month + '_airline.csv')
+        df = pd.read_csv(os.path.join(os.path.dirname(__file__), 'monthly data', month + '_airline.csv'))
         if 'DEP_DELAY' in df.columns: 
             df['DEP_DELAY_NEW'] = df['DEP_DELAY']
             df = df.drop('DEP_DELAY', axis=1)
