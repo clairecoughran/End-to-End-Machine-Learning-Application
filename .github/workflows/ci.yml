@@ -35,3 +35,6 @@ jobs:
 
       - name: Run Phase 2 tests
         run: pytest "phase 2/test_app.py"
+
+      - name: Run Phase 3 tests
+        run: pytest "phase 3/test_frontend.py"
