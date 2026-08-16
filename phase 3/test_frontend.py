@@ -2,7 +2,7 @@ import pytest
 import dashboard as db
 import user_interface as ui
 from streamlit.testing.v1 import AppTest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 import pandas as pd
 
 # UNIT TEST
