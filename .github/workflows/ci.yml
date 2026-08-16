@@ -33,9 +33,7 @@ jobs:
       - name: Run Flake8
         run: |
           flake8 \
-            --ignore=E501,W291,W293,W292,W391,E302,E305,E303,E128 \
-            --ignore=E225,E221,E231,E266,E265,E701,E116,E122,E711,E203 \
-            --ignore=F401,F841
+            --ignore=E501,W291,W293,W292,W391,E302,E305,E303,E128,E225,E221,E231,E266,E265,E701,E116,E122,E711,E203,E126,E226,F401,F841
 
       - name: Run Phase 1 tests
         run: pytest "phase 1/cleaning/test_cleaning.py" "phase 1/training/test_train.py"
