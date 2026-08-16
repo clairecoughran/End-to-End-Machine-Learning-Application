@@ -12,6 +12,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -24,7 +27,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install test dependencies
-        run: pip install pytest pandas scikit-learn wandb fastapi psycopg pydantic joblib numpy
+        run: pip install pytest pandas scikit-learn wandb fastapi psycopg pydantic joblib numpy httpx2
 
       - name: Run Phase 1 tests
         run: pytest "phase 1/cleaning/test_cleaning.py" "phase 1/training/test_train.py"
