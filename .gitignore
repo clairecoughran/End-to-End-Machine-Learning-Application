@@ -8,3 +8,5 @@ wandb/
 .pytest_cache/
 phase 1/cleaning/clean_delays.csv
 phase 3/artifacts/
+artifacts/
+phase 2/artifacts/

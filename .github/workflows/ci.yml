@@ -24,7 +24,10 @@ jobs:
           python-version: "3.11"
 
       - name: Install test dependencies
-        run: pip install pytest pandas scikit-learn wandb
+        run: pip install pytest pandas scikit-learn wandb fastapi psycopg pydantic joblib numpy
 
       - name: Run Phase 1 tests
         run: pytest "phase 1/cleaning/test_cleaning.py" "phase 1/training/test_train.py"
+
+      - name: Run Phase 2 tests
+        run: pytest "phase 2/test_app.py"

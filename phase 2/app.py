@@ -185,7 +185,7 @@ def predict(input_data: FlightRequest):
 def train_example():
     target = random.randint(1, 50000)
 
-    with open("clean_delays.csv", newline="", encoding="utf-8") as f:
+    with open(os.path.join(os.path.dirname(__file__), "clean_delays.csv"), newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
         header = next(reader)
 
