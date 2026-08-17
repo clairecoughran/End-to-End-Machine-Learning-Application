@@ -88,7 +88,7 @@ origin = airport_codes.loc[airport_codes['Description'] == origin_full, 'Code'].
 
 # DEST
 dest_full = st.selectbox("Where is your flight taking off from?", airport_codes['Description'].to_list(), key='dest_select')
-dest = airport_codes.loc[airport_codes['Description'] == origin_full, 'Code'].iloc[0]
+dest = airport_codes.loc[airport_codes['Description'] == dest_full, 'Code'].iloc[0]
 
 # DEP_TIME_BLK
 dep_time = float(st.number_input("What hour of the day was your flight scheduled to takeoff?"))
@@ -167,7 +167,9 @@ request_body = {"features": {
 
 # --- Make prediction ---
 if st.button('Analyze'):
-    response = requests.post("http://localhost:8000/predict", json=request_body)
+    api_url = os.getenv("API_URL", "http://localhost:8000")
+
+    response = requests.post(f"{api_url}/predict", json=request_body)
     prediction = response.json()["delay"]
     
     if prediction == 1: 
